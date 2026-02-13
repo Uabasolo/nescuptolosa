@@ -1,0 +1,308 @@
+# Equipos Participantes NESCUP 2026
+
+teams:
+  # GRUPO A
+  - id: "lagun-onak"
+    name: "Lagun Onak FT"
+    shortName: "Lagun Onak"
+    club: "Lagun Onak FT"
+    city: "Azpeitia"
+    region: "Gipuzkoa"
+    group: "A"
+    colors:
+      primary: "#0033A0"
+      secondary: "#FFFFFF"
+    logo: "/images/teams/LagunOnak.jpg"
+    contact:
+      coach: ""
+      email: ""
+      phone: ""
+    stats:
+      played: 0
+      won: 0
+      drawn: 0
+      lost: 0
+      goalsFor: 0
+      goalsAgainst: 0
+      points: 0
+
+  - id: "real-sociedad"
+    name: "Real Sociedad"
+    shortName: "Real Sociedad"
+    club: "Real Sociedad"
+    city: "Donostia"
+    region: "Gipuzkoa"
+    group: "A"
+    colors:
+      primary: "#0033A0"
+      secondary: "#FFFFFF"
+    logo: "/images/teams/real-sociedad-logo-0.png"
+    contact:
+      coach: ""
+      email: ""
+      phone: ""
+    stats:
+      played: 0
+      won: 0
+      drawn: 0
+      lost: 0
+      goalsFor: 0
+      goalsAgainst: 0
+      points: 0
+
+  - id: "sanse"
+    name: "Sanse CDDF"
+    shortName: "Sanse"
+    club: "Sanse CDDF"
+    city: "Donostia"
+    region: "Gipuzkoa"
+    group: "A"
+    colors:
+      primary: "#FFFFFF"
+      secondary: "#0033A0"
+    logo: "/images/teams/SanseCD.png"
+    contact:
+      coach: ""
+      email: ""
+      phone: ""
+    stats:
+      played: 0
+      won: 0
+      drawn: 0
+      lost: 0
+      goalsFor: 0
+      goalsAgainst: 0
+      points: 0
+
+  - id: "bizkerre"
+    name: "Bizkerre Club"
+    shortName: "Bizkerre"
+    club: "Bizkerre Club"
+    city: "Getxo"
+    region: "Bizkaia"
+    group: "A"
+    colors:
+      primary: "#FFFFFF"
+      secondary: "#0033A0"
+    logo: "/images/teams/Bizkerre-5619479.png"
+    contact:
+      coach: ""
+      email: ""
+      phone: ""
+    stats:
+      played: 0
+      won: 0
+      drawn: 0
+      lost: 0
+      goalsFor: 0
+      goalsAgainst: 0
+      points: 0
+
+  # GRUPO B
+  - id: "mulier"
+    name: "Mulier FCN"
+    shortName: "Mulier"
+    club: "Mulier FCN"
+    city: "Sarriguren"
+    region: "Navarra"
+    group: "B"
+    colors:
+      primary: "#DC143C"
+      secondary: "#000000"
+    logo: "/images/teams/Mulier.png"
+    contact:
+      coach: ""
+      email: ""
+      phone: ""
+    stats:
+      played: 0
+      won: 0
+      drawn: 0
+      lost: 0
+      goalsFor: 0
+      goalsAgainst: 0
+      points: 0
+
+  - id: "basauriko-kimuak"
+    name: "Basauriko Kimuak"
+    shortName: "Basauriko Kimuak"
+    club: "Basauriko Kimuak"
+    city: "Basauri"
+    region: "Bizkaia"
+    group: "B"
+    colors:
+      primary: "#FFD700"
+      secondary: "#000000"
+    logo: "/images/teams/BasaurikoKimuak.jpg"
+    contact:
+      coach: ""
+      email: ""
+      phone: ""
+    stats:
+      played: 0
+      won: 0
+      drawn: 0
+      lost: 0
+      goalsFor: 0
+      goalsAgainst: 0
+      points: 0
+
+  - id: "tolosa"
+    name: "Tolosa CF"
+    shortName: "Tolosa"
+    club: "Tolosa CF"
+    city: "Tolosa"
+    region: "Gipuzkoa"
+    group: "B"
+    colors:
+      primary: "#0033A0"
+      secondary: "#0033A0"
+    logo: "/images/teams/TolosaCF.jpg"
+    contact:
+      coach: ""
+      email: ""
+      phone: ""
+    stats:
+      played: 0
+      won: 0
+      drawn: 0
+      lost: 0
+      goalsFor: 0
+      goalsAgainst: 0
+      points: 0
+
+  - id: "goierri-gorri"
+    name: "Goierri Gorri FK"
+    shortName: "Goierri Gorri"
+    club: "Goierri Gorri FK"
+    city: "Ordizia"
+    region: "Gipuzkoa"
+    group: "B"
+    colors:
+      primary: "#DC143C"
+      secondary: "#DC143C"
+    logo: "/images/teams/Goierri_Gorri_FK_tokikom_375x375.jpg"
+    contact:
+      coach: ""
+      email: ""
+      phone: ""
+    stats:
+      played: 0
+      won: 0
+      drawn: 0
+      lost: 0
+      goalsFor: 0
+      goalsAgainst: 0
+      points: 0
+
+  # GRUPO C
+  - id: "martutene"
+    name: "Martutene KE"
+    shortName: "Martutene"
+    club: "Martutene KE"
+    city: "Donostia"
+    region: "Gipuzkoa"
+    group: "C"
+    colors:
+      primary: "#0033A0"
+      secondary: "#000000"
+    logo: "/images/teams/Martutene.png"
+    contact:
+      coach: ""
+      email: ""
+      phone: ""
+    stats:
+      played: 0
+      won: 0
+      drawn: 0
+      lost: 0
+      goalsFor: 0
+      goalsAgainst: 0
+      points: 0
+
+  - id: "intxaurdi"
+    name: "Intxaurdi KE"
+    shortName: "Intxaurdi"
+    club: "Intxaurdi KE"
+    city: "Donostia"
+    region: "Gipuzkoa"
+    group: "C"
+    colors:
+      primary: "#FFFFFF"
+      secondary: "#0033A0"
+    logo: "/images/teams/Intxaurdi.jpg"
+    contact:
+      coach: ""
+      email: ""
+      phone: ""
+    stats:
+      played: 0
+      won: 0
+      drawn: 0
+      lost: 0
+      goalsFor: 0
+      goalsAgainst: 0
+      points: 0
+
+  - id: "touring"
+    name: "Touring KE"
+    shortName: "Touring"
+    club: "Touring KE"
+    city: "Errenteria"
+    region: "Gipuzkoa"
+    group: "C"
+    colors:
+      primary: "#DC143C"
+      secondary: "#0033A0"
+    logo: "/images/teams/Touring-300x300.png"
+    contact:
+      coach: ""
+      email: ""
+      phone: ""
+    stats:
+      played: 0
+      won: 0
+      drawn: 0
+      lost: 0
+      goalsFor: 0
+      goalsAgainst: 0
+      points: 0
+
+  - id: "cd-lourdes"
+    name: "C.D. Lourdes"
+    shortName: "Lourdes"
+    club: "Club Deportivo Lourdes"
+    city: "Tudela"
+    region: "Navarra"
+    group: "C"
+    colors:
+      primary: "#228B22"
+      secondary: "#228B22"
+    logo: "/images/teams/CDLourdes.jpg"
+    contact:
+      coach: ""
+      email: ""
+      phone: ""
+    stats:
+      played: 0
+      won: 0
+      drawn: 0
+      lost: 0
+      goalsFor: 0
+      goalsAgainst: 0
+      points: 0
+
+# Grupos
+groups:
+  A:
+    name: "Grupo A"
+    teams: ["lagun-onak", "real-sociedad", "sanse", "bizkerre"]
+  
+  B:
+    name: "Grupo B"
+    teams: ["mulier", "basauriko-kimuak", "tolosa", "goierri-gorri"]
+  
+  C:
+    name: "Grupo C"
+    teams: ["martutene", "intxaurdi", "touring", "cd-lourdes"]
+

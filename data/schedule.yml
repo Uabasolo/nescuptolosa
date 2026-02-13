@@ -1,0 +1,130 @@
+# Calendario de Partidos NESCUP 2026
+
+matches:
+  # FASE DE GRUPOS - Día 1
+  
+  - id: "match-001"
+    phase: "group"
+    group: "A"
+    matchNumber: 1
+    date: "2026-06-12"
+    time: "09:00"
+    venue: "venue-001"  # Referencia a venues.yml
+    
+    homeTeam: "team-001"  # Referencia a teams.yml
+    awayTeam: "team-002"  # Referencia a teams.yml
+    
+    # Resultados (completar después del partido)
+    result:
+      homeScore: null
+      awayScore: null
+      status: "scheduled"  # scheduled, live, finished, postponed, cancelled
+    
+    # Información adicional
+    referee: ""  # PLACEHOLDER
+    notes: ""
+
+  # EJEMPLO: Más partidos de fase de grupos
+  - id: "match-002"
+    phase: "group"
+    group: "A"
+    matchNumber: 2
+    date: "2026-06-12"
+    time: "10:30"
+    venue: "venue-001"
+    homeTeam: "team-003"
+    awayTeam: "team-004"
+    result:
+      homeScore: null
+      awayScore: null
+      status: "scheduled"
+    referee: ""
+    notes: ""
+
+  # PLACEHOLDER: Añadir más partidos de fase de grupos
+  # Replicar estructura para cada partido
+
+  # SEMIFINALES - Día 3
+  - id: "match-semi-1"
+    phase: "semifinal"
+    matchNumber: 1
+    date: "2026-06-14"
+    time: "10:00"
+    venue: "venue-001"
+    homeTeam: "TBD"  # Se define tras fase grupos
+    awayTeam: "TBD"
+    result:
+      homeScore: null
+      awayScore: null
+      status: "scheduled"
+    referee: ""
+    notes: "1º Grupo A vs 2º Grupo B"
+
+  - id: "match-semi-2"
+    phase: "semifinal"
+    matchNumber: 2
+    date: "2026-06-14"
+    time: "12:00"
+    venue: "venue-002"
+    homeTeam: "TBD"
+    awayTeam: "TBD"
+    result:
+      homeScore: null
+      awayScore: null
+      status: "scheduled"
+    referee: ""
+    notes: "1º Grupo C vs 2º Grupo D"
+
+  # TERCER Y CUARTO PUESTO
+  - id: "match-3rd-place"
+    phase: "third-place"
+    matchNumber: 1
+    date: "2026-06-14"
+    time: "15:00"
+    venue: "venue-001"
+    homeTeam: "TBD"
+    awayTeam: "TBD"
+    result:
+      homeScore: null
+      awayScore: null
+      status: "scheduled"
+    referee: ""
+    notes: "Partido por el tercer puesto"
+
+  # FINAL
+  - id: "match-final"
+    phase: "final"
+    matchNumber: 1
+    date: "2026-06-14"
+    time: "17:00"
+    venue: "venue-001"
+    homeTeam: "TBD"
+    awayTeam: "TBD"
+    result:
+      homeScore: null
+      awayScore: null
+      status: "scheduled"
+    referee: ""
+    notes: "Gran Final NESCUP 2026"
+
+# Configuración de rondas
+rounds:
+  - id: "group-stage-day1"
+    name: "Fase de Grupos - Jornada 1"
+    date: "2026-06-12"
+    matches: ["match-001", "match-002"]  # Añadir IDs
+  
+  - id: "group-stage-day2"
+    name: "Fase de Grupos - Jornada 2"
+    date: "2026-06-13"
+    matches: []  # PLACEHOLDER
+  
+  - id: "semifinals"
+    name: "Semifinales"
+    date: "2026-06-14"
+    matches: ["match-semi-1", "match-semi-2"]
+  
+  - id: "finals"
+    name: "Final y Tercer Puesto"
+    date: "2026-06-14"
+    matches: ["match-3rd-place", "match-final"]

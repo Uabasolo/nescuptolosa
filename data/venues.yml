@@ -1,0 +1,95 @@
+# Instalaciones Deportivas NESCUP 2026
+
+venues:
+  - id: "venue-001"
+    name: "Campo Principal de Tolosa"  # PLACEHOLDER: Nombre real
+    shortName: "Campo Principal"
+    
+    location:
+      address: "Dirección del campo"  # PLACEHOLDER
+      city: "Tolosa"
+      region: "Gipuzkoa"
+      postalCode: "20400"  # PLACEHOLDER
+      coordinates:
+        lat: 43.1342  # PLACEHOLDER: Coordenadas reales
+        lng: -2.0831
+    
+    facilities:
+      type: "outdoor"  # outdoor, indoor, hybrid
+      surface: "césped artificial"
+      dimensions: "100m x 60m"  # PLACEHOLDER
+      capacity: 500  # PLACEHOLDER
+      lighting: true
+      covered: false
+      
+    amenities:
+      - "Vestuarios"
+      - "Duchas"
+      - "Zona de calentamiento"
+      - "Graderío"
+      - "Parking"
+      - "Baños públicos"
+      - "Cafetería"
+    
+    access:
+      parking: true
+      parkingSpaces: 50  # PLACEHOLDER
+      publicTransport:
+        - type: "bus"
+          line: "L1, L2"  # PLACEHOLDER
+        - type: "train"
+          station: "Tolosa"
+          distance: "1.5 km"
+      wheelchair: true
+    
+    contact:
+      phone: "+34 XXX XXX XXX"  # PLACEHOLDER
+      email: "campo1@example.com"  # PLACEHOLDER
+    
+    # Para mostrar mapa en la web
+    mapUrl: "https://maps.google.com/?q=43.1342,-2.0831"  # PLACEHOLDER
+
+  - id: "venue-002"
+    name: "Campo Secundario Tolosa"  # PLACEHOLDER: Nombre real
+    shortName: "Campo 2"
+    
+    location:
+      address: "Dirección del campo secundario"  # PLACEHOLDER
+      city: "Tolosa"
+      region: "Gipuzkoa"
+      postalCode: "20400"
+      coordinates:
+        lat: 43.1350  # PLACEHOLDER
+        lng: -2.0840
+    
+    facilities:
+      type: "outdoor"
+      surface: "césped natural"
+      dimensions: "90m x 55m"  # PLACEHOLDER
+      capacity: 300
+      lighting: true
+      covered: false
+    
+    amenities:
+      - "Vestuarios"
+      - "Duchas"
+      - "Zona de calentamiento"
+      - "Graderío"
+      - "Parking"
+      - "Baños públicos"
+    
+    access:
+      parking: true
+      parkingSpaces: 30
+      publicTransport:
+        - type: "bus"
+          line: "L1"
+      wheelchair: true
+    
+    contact:
+      phone: "+34 XXX XXX XXX"  # PLACEHOLDER
+      email: "campo2@example.com"  # PLACEHOLDER
+    
+    mapUrl: "https://maps.google.com/?q=43.1350,-2.0840"  # PLACEHOLDER
+
+# PLACEHOLDER: Añadir más instalaciones si es necesario

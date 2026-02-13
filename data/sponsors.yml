@@ -1,0 +1,105 @@
+# Patrocinadores NESCUP 2026
+
+sponsors:
+  # PATROCINADORES PRINCIPALES
+  - id: "sponsor-principal-001"
+    name: "Patrocinador Principal 1"  # PLACEHOLDER
+    tier: "principal"  # principal, gold, silver, bronze, colaborador
+    logo: "/images/sponsors/principal-1.png"  # PLACEHOLDER
+    website: "https://www.example.com"  # PLACEHOLDER
+    description: "Descripción breve del patrocinador"  # PLACEHOLDER
+    active: true
+    order: 1  # Orden de visualización
+
+  # PATROCINADORES ORO
+  - id: "sponsor-gold-001"
+    name: "Patrocinador Oro 1"  # PLACEHOLDER
+    tier: "gold"
+    logo: "/images/sponsors/gold-1.png"  # PLACEHOLDER
+    website: "https://www.example.com"
+    description: ""
+    active: true
+    order: 2
+
+  - id: "sponsor-gold-002"
+    name: "Patrocinador Oro 2"  # PLACEHOLDER
+    tier: "gold"
+    logo: "/images/sponsors/gold-2.png"  # PLACEHOLDER
+    website: "https://www.example.com"
+    description: ""
+    active: true
+    order: 3
+
+  # PATROCINADORES PLATA
+  - id: "sponsor-silver-001"
+    name: "Patrocinador Plata 1"  # PLACEHOLDER
+    tier: "silver"
+    logo: "/images/sponsors/silver-1.png"  # PLACEHOLDER
+    website: "https://www.example.com"
+    description: ""
+    active: true
+    order: 4
+
+  - id: "sponsor-silver-002"
+    name: "Patrocinador Plata 2"  # PLACEHOLDER
+    tier: "silver"
+    logo: "/images/sponsors/silver-2.png"  # PLACEHOLDER
+    website: "https://www.example.com"
+    description: ""
+    active: true
+    order: 5
+
+  # COLABORADORES
+  - id: "sponsor-collab-001"
+    name: "Colaborador 1"  # PLACEHOLDER
+    tier: "colaborador"
+    logo: "/images/sponsors/collab-1.png"  # PLACEHOLDER
+    website: "https://www.example.com"
+    description: ""
+    active: true
+    order: 6
+
+  # PLACEHOLDER: Añadir más patrocinadores según necesidad
+
+# Categorías de patrocinio (para mostrar en la web)
+tiers:
+  principal:
+    name: "Patrocinador Principal"
+    displayName: "Patrocinador Principal"
+    logoSize: "large"
+    benefits:
+      - "Logo en todas las comunicaciones"
+      - "Presencia en material oficial"
+      - "Zona exclusiva en el evento"
+  
+  gold:
+    name: "Patrocinadores Oro"
+    displayName: "Patrocinadores Oro"
+    logoSize: "medium"
+    benefits:
+      - "Logo en comunicaciones principales"
+      - "Presencia en material oficial"
+  
+  silver:
+    name: "Patrocinadores Plata"
+    displayName: "Patrocinadores Plata"
+    logoSize: "medium"
+    benefits:
+      - "Logo en material oficial"
+      - "Mención en redes sociales"
+  
+  bronze:
+    name: "Patrocinadores Bronce"
+    displayName: "Patrocinadores Bronce"
+    logoSize: "small"
+    benefits:
+      - "Logo en web oficial"
+  
+  colaborador:
+    name: "Colaboradores"
+    displayName: "Con la colaboración de"
+    logoSize: "small"
+    benefits:
+      - "Logo en web oficial"
+
+# NOTA: Colocar todos los logos en /public/images/sponsors/

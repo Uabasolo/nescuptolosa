@@ -1,0 +1,146 @@
+# Información General del Torneo NESCUP 2026
+
+# Datos básicos
+name: "NESCUP 2026"
+edition: 10  # Décima edición
+year: 2026
+tagline: "Torneo de fútbol alevín femenino de rendimiento"
+description: |
+  La NESCUP es un torneo de fútbol alevín femenino organizado por el Tolosa CF
+  para fomentar el fútbol femenino en la comarca de Tolosaldea. 
+  Es un día festivo en el que chicas de diferentes provincias tienen la ocasión 
+  de disfrutar haciendo lo que más les gusta, a la vez que conocen y se relacionan 
+  con las demás participantes.
+
+organizer:
+  name: "Tolosa CF"
+  fullName: "Tolosa Club de Fútbol"
+  region: "Gipuzkoa"
+  coordinator: "Aiheko Uria"
+  role: "Coordinador Sección Femenino"
+
+# Categoría
+category:
+  name: "Alevín Femenino"
+  ageGroup: "Sub-12"
+  birthYear: 2014  # Jugadoras nacidas en 2014
+  gender: "Femenino"
+
+# Fechas y ubicación
+dates:
+  start: "2026-04-11"  # PLACEHOLDER: Ajustar fecha real
+  end: "2026-04-11"    # PLACEHOLDER: Ajustar fecha real
+  registrationOpen: "2025-10-01"
+  registrationClose: "2026-02-01"
+  
+location:
+  city: "Tolosa"
+  region: "Gipuzkoa"
+  country: "España"
+  address: "Auzoa, 25, 20400 Usabal, Gipuzkoa"
+  coordinates:
+    lat: 43.1286891148615
+    lng: -2.084667824227259
+
+# Estadísticas
+stats:
+  maxTeams: 12
+  currentTeams: 0  # Se actualizará según inscripciones
+  expectedPlayers: 180
+  matchDays: 1
+  venues: 1
+
+# Formato del torneo
+format:
+  type: "Fase de Grupos + Fases Finales"
+  groups: 3
+  teamsPerGroup: 4
+  matchDuration: "2 x 25 min"
+  competitionPhases:
+    - "Fase de Grupos"
+    - "Fase Campeón"
+    - "Fase Copa"
+  
+phases:
+  - name: "Fase de Grupos"
+    description: "3 grupos de 4 equipos - Todos contra todos en el grupo"
+    startTime: "09:00"
+    dates:
+      start: "2026-04-11"
+      end: "2026-04-11"
+  
+  - name: "Semifinales"
+    description: "Los mejores de cada grupo"
+    startTime: "14:30"
+    dates:
+      start: "2026-04-11"
+      end: "2026-04-11"
+  
+  - name: "Final"
+    description: "Gran Final del torneo"
+    startTime: "17:00"
+    dates:
+      start: "2026-04-11"
+      end: "2026-04-11"
+
+# Premios
+prizes:
+  - position: 1
+    name: "Campeón"
+    award: "Trofeo, medallas y material deportivo"
+  
+  - position: 2
+    name: "Subcampeón"
+    award: "Trofeo y medallas"
+  
+  - position: 3
+    name: "Tercer Puesto"
+    award: "Trofeo y medallas"
+  
+  special:
+    - name: "Máxima Goleadora"
+      award: "Trofeo individual"
+    - name: "Mejor Portera"
+      award: "Trofeo individual"
+    - name: "Fair Play"
+      award: "Trofeo al equipo"
+
+# Contacto
+contact:
+  email: "tolosacftxapelketak@gmail.com"
+  phone: "+34 685 75 14 58"
+  whatsapp: "+34 685 75 14 58"
+  coordinator: "Aiheko Uria"
+  website: "https://nescup2026.com"
+  
+  social:
+    twitter: ""
+    instagram: "tolosacf_"
+    facebook: ""
+
+# Inscripción
+registration:
+  fee: 0
+  includes:
+    - "Participación en todos los partidos"
+    - "Camiseta oficial del torneo"
+    - "Seguro de accidentes"
+    - "Diploma de participación"
+    - "Balón oficial"
+    - "Comidas durante el torneo"
+  
+  requirements:
+    - "Licencia federativa vigente (obligatorio)"
+    - "Seguro de responsabilidad civil del club"
+    - "Lista de convocatoria (máximo 16 jugadoras por equipo)"
+
+# Información adicional
+features:
+  - "Arbitraje oficial"
+  - "Servicio médico en instalaciones"
+  - "Zona de avituallamiento"
+  - "Parking gratuito"
+  - "Área de food trucks"
+  - "Zona de merchandising"
+
+# PLACEHOLDER: Añadir información adicional según necesidades
