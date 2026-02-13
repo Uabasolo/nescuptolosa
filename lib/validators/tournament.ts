@@ -13,10 +13,20 @@ export const locationSchema = z.object({
   city: z.string(),
   region: z.string(),
   country: z.string(),
+  address: z.string(),
   coordinates: z.object({
     lat: z.number(),
     lng: z.number(),
   }),
+});
+
+// Schema para organizador
+export const organizerSchema = z.object({
+  name: z.string(),
+  fullName: z.string(),
+  region: z.string(),
+  coordinator: z.string(),
+  role: z.string(),
 });
 
 // Schema para categoría
@@ -47,6 +57,7 @@ export const formatSchema = z.object({
 export const phaseSchema = z.object({
   name: z.string(),
   description: z.string(),
+  startTime: z.string().optional(),
   dates: z.object({
     start: z.string(),
     end: z.string(),
@@ -64,6 +75,8 @@ export const prizeSchema = z.object({
 export const contactSchema = z.object({
   email: z.string().email(),
   phone: z.string(),
+  whatsapp: z.string().optional(),
+  coordinator: z.string(),
   website: z.string().url(),
   social: z.object({
     twitter: z.string().optional(),
@@ -83,8 +96,10 @@ export const registrationSchema = z.object({
 export const tournamentSchema = z.object({
   name: z.string(),
   edition: z.number(),
+  year: z.number(),
   tagline: z.string(),
   description: z.string(),
+  organizer: organizerSchema,
   category: categorySchema,
   dates: tournamentDatesSchema,
   location: locationSchema,

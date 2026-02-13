@@ -97,13 +97,13 @@ prizes:
     name: "Tercer Puesto"
     award: "Trofeo y medallas"
   
-  special:
-    - name: "Máxima Goleadora"
-      award: "Trofeo individual"
-    - name: "Mejor Portera"
-      award: "Trofeo individual"
-    - name: "Fair Play"
-      award: "Trofeo al equipo"
+special:
+  - name: "Máxima Goleadora"
+    award: "Trofeo individual"
+  - name: "Mejor Portera"
+    award: "Trofeo individual"
+  - name: "Fair Play"
+    award: "Trofeo al equipo"
 
 # Contacto
 contact:

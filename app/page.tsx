@@ -2,8 +2,28 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Link from 'next/link';
 import Image from 'next/image';
+import { loadTournament } from '@/lib/loaders/tournament';
+import { getTeamsByGroups } from '@/lib/loaders/teams';
 
-export default function Home() {
+export default async function Home() {
+  const tournament = await loadTournament();
+  const teamsByGroup = await getTeamsByGroups();
+  
+  // Formatear fecha
+  const eventDate = new Date(tournament.dates.start);
+  const formattedDate = eventDate.toLocaleDateString('es-ES', { 
+    day: 'numeric', 
+    month: 'long', 
+    year: 'numeric' 
+  });
+  const shortDate = eventDate.toLocaleDateString('es-ES', { 
+    day: 'numeric', 
+    month: 'short',
+    year: 'numeric'
+  });
+  
+  // Obtener hora de inicio de la primera fase
+  const startTime = tournament.phases[0]?.startTime || '09:00';
   return (
     <>
       <Header />
@@ -21,19 +41,19 @@ export default function Home() {
             {/* Badge */}
             <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold border border-white/20">
               <span className="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></span>
-              <span>11 de Abril 2026 • Tolosa, Gipuzkoa</span>
+              <span>{shortDate} • {tournament.location.city}, {tournament.location.region}</span>
             </div>
 
             {/* Main Title */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight tracking-tight">
               NESCUP
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 mt-2">
-                2026
+                {tournament.year}
               </span>
             </h1>
 
             <p className="text-xl sm:text-2xl md:text-3xl text-blue-100 max-w-4xl mx-auto font-light leading-relaxed">
-              Torneo de fútbol alevín femenino de alto rendimiento
+              {tournament.tagline}
             </p>
 
             {/* CTA Buttons */}
@@ -55,19 +75,19 @@ export default function Home() {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-12 sm:pt-16 max-w-5xl mx-auto">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/15 transition-all">
-                <div className="text-4xl sm:text-5xl font-bold text-amber-400 mb-2">12</div>
+                <div className="text-4xl sm:text-5xl font-bold text-amber-400 mb-2">{tournament.stats.maxTeams}</div>
                 <div className="text-xs sm:text-sm text-blue-100 uppercase tracking-wider">Equipos</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/15 transition-all">
-                <div className="text-4xl sm:text-5xl font-bold text-amber-400 mb-2">3</div>
+                <div className="text-4xl sm:text-5xl font-bold text-amber-400 mb-2">{tournament.format.groups}</div>
                 <div className="text-xs sm:text-sm text-blue-100 uppercase tracking-wider">Grupos</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/15 transition-all">
-                <div className="text-4xl sm:text-5xl font-bold text-amber-400 mb-2">1</div>
+                <div className="text-4xl sm:text-5xl font-bold text-amber-400 mb-2">{tournament.stats.matchDays}</div>
                 <div className="text-xs sm:text-sm text-blue-100 uppercase tracking-wider">Día</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/15 transition-all">
-                <div className="text-4xl sm:text-5xl font-bold text-amber-400 mb-2">0€</div>
+                <div className="text-4xl sm:text-5xl font-bold text-amber-400 mb-2">{tournament.registration.fee}€</div>
                 <div className="text-xs sm:text-sm text-blue-100 uppercase tracking-wider">Inscripción</div>
               </div>
             </div>
@@ -90,20 +110,20 @@ export default function Home() {
               <svg className="w-6 h-6 text-blue-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              <span className="text-blue-950 font-bold text-sm sm:text-base">11 de Abril 2026</span>
+              <span className="text-blue-950 font-bold text-sm sm:text-base">{formattedDate}</span>
             </div>
             <div className="flex items-center space-x-3">
               <svg className="w-6 h-6 text-blue-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span className="text-blue-950 font-bold text-sm sm:text-base">Inicio: 09:00h</span>
+              <span className="text-blue-950 font-bold text-sm sm:text-base">Inicio: {startTime}h</span>
             </div>
             <div className="flex items-center space-x-3">
               <svg className="w-6 h-6 text-blue-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <span className="text-blue-950 font-bold text-sm sm:text-base">Usabal, Tolosa</span>
+              <span className="text-blue-950 font-bold text-sm sm:text-base">{tournament.location.city}</span>
             </div>
           </div>
         </div>
@@ -115,118 +135,40 @@ export default function Home() {
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">Los Grupos</h2>
             <p className="text-lg sm:text-xl text-gray-600">
-              12 equipos competirán en 3 grupos de alto nivel
+              {tournament.stats.maxTeams} equipos competirán en {tournament.format.groups} grupos de alto nivel
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Grupo A */}
-            <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all border-t-4 border-blue-500">
-              <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                  <span className="text-3xl font-bold text-blue-600">A</span>
+            {Object.entries(teamsByGroup).map(([groupId, teams], idx) => {
+              const colors = [
+                { border: 'border-blue-500', bg: 'bg-blue-100', text: 'text-blue-600' },
+                { border: 'border-amber-500', bg: 'bg-amber-100', text: 'text-amber-600' },
+                { border: 'border-blue-500', bg: 'bg-blue-100', text: 'text-blue-600' }
+              ];
+              const color = colors[idx % colors.length];
+              
+              return (
+                <div key={groupId} className={`bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all border-t-4 ${color.border}`}>
+                  <div className="text-center mb-6">
+                    <div className={`inline-flex items-center justify-center w-16 h-16 ${color.bg} rounded-full mb-4`}>
+                      <span className={`text-3xl font-bold ${color.text}`}>{groupId}</span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900">Grupo {groupId}</h3>
+                  </div>
+                  <ul className="space-y-3">
+                    {teams.map((team) => (
+                      <li key={team.id} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-all">
+                        <div className="w-8 h-8 relative flex-shrink-0">
+                          <Image src={team.logo} alt={team.shortName} fill sizes="32px" className="object-contain" />
+                        </div>
+                        <span className="text-gray-700 font-medium">{team.shortName}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Grupo A</h3>
-              </div>
-              <ul className="space-y-3">
-                <li className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-all">
-                  <div className="w-8 h-8 relative flex-shrink-0">
-                    <Image src="/images/teams/LagunOnak.jpg" alt="Lagun Onak" fill sizes="32px" className="object-contain" />
-                  </div>
-                  <span className="text-gray-700 font-medium">Lagun Onak</span>
-                </li>
-                <li className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-all">
-                  <div className="w-8 h-8 relative flex-shrink-0">
-                    <Image src="/images/teams/real-sociedad-logo-0.png" alt="Real Sociedad" fill sizes="32px" className="object-contain" />
-                  </div>
-                  <span className="text-gray-700 font-medium">Real Sociedad</span>
-                </li>
-                <li className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-all">
-                  <div className="w-8 h-8 relative flex-shrink-0">
-                    <Image src="/images/teams/SanseCD.png" alt="Sanse" fill sizes="32px" className="object-contain" />
-                  </div>
-                  <span className="text-gray-700 font-medium">Sanse</span>
-                </li>
-                <li className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-all">
-                  <div className="w-8 h-8 relative flex-shrink-0">
-                    <Image src="/images/teams/Bizkerre-5619479.png" alt="Bizkerre" fill sizes="32px" className="object-contain" />
-                  </div>
-                  <span className="text-gray-700 font-medium">Bizkerre</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Grupo B */}
-            <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all border-t-4 border-amber-500">
-              <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-amber-100 rounded-full mb-4">
-                  <span className="text-3xl font-bold text-amber-600">B</span>
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">Grupo B</h3>
-              </div>
-              <ul className="space-y-3">
-                <li className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-all">
-                  <div className="w-8 h-8 relative flex-shrink-0">
-                    <Image src="/images/teams/Mulier.png" alt="Mulier" fill sizes="32px" className="object-contain" />
-                  </div>
-                  <span className="text-gray-700 font-medium">Mulier</span>
-                </li>
-                <li className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-all">
-                  <div className="w-8 h-8 relative flex-shrink-0">
-                    <Image src="/images/teams/BasaurikoKimuak.jpg" alt="Basauriko Kimuak" fill sizes="32px" className="object-contain" />
-                  </div>
-                  <span className="text-gray-700 font-medium">Basauriko Kimuak</span>
-                </li>
-                <li className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-all">
-                  <div className="w-8 h-8 relative flex-shrink-0">
-                    <Image src="/images/teams/TolosaCF.jpg" alt="Tolosa" fill sizes="32px" className="object-contain" />
-                  </div>
-                  <span className="text-gray-700 font-medium">Tolosa</span>
-                </li>
-                <li className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-all">
-                  <div className="w-8 h-8 relative flex-shrink-0">
-                    <Image src="/images/teams/Goierri_Gorri_FK_tokikom_375x375.jpg" alt="Goierri Gorri" fill sizes="32px" className="object-contain" />
-                  </div>
-                  <span className="text-gray-700 font-medium">Goierri Gorri</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Grupo C */}
-            <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all border-t-4 border-blue-500">
-              <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                  <span className="text-3xl font-bold text-blue-600">C</span>
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">Grupo C</h3>
-              </div>
-              <ul className="space-y-3">
-                <li className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-all">
-                  <div className="w-8 h-8 relative flex-shrink-0">
-                    <Image src="/images/teams/Martutene.png" alt="Martutene" fill sizes="32px" className="object-contain" />
-                  </div>
-                  <span className="text-gray-700 font-medium">Martutene</span>
-                </li>
-                <li className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-all">
-                  <div className="w-8 h-8 relative flex-shrink-0">
-                    <Image src="/images/teams/Intxaurdi.jpg" alt="Intxaurdi" fill sizes="32px" className="object-contain" />
-                  </div>
-                  <span className="text-gray-700 font-medium">Intxaurdi</span>
-                </li>
-                <li className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-all">
-                  <div className="w-8 h-8 relative flex-shrink-0">
-                    <Image src="/images/teams/Touring-300x300.png" alt="Touring" fill sizes="32px" className="object-contain" />
-                  </div>
-                  <span className="text-gray-700 font-medium">Touring</span>
-                </li>
-                <li className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-all">
-                  <div className="w-8 h-8 relative flex-shrink-0">
-                    <Image src="/images/teams/CDLourdes.jpg" alt="C.D. Lourdes" fill sizes="32px" className="object-contain" />
-                  </div>
-                  <span className="text-gray-700 font-medium">C.D. Lourdes</span>
-                </li>
-              </ul>
-            </div>
+              );
+            })}
           </div>
 
           <div className="text-center mt-12">
@@ -341,7 +283,7 @@ export default function Home() {
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">Programa del Día</h2>
             <p className="text-lg sm:text-xl text-gray-600">
-              11 de Abril 2026 - Todo en un solo día
+              {formattedDate} - Todo en un solo día
             </p>
           </div>
 
@@ -352,35 +294,26 @@ export default function Home() {
 
               {/* Timeline items */}
               <div className="space-y-8 sm:space-y-12">
-                <div className="relative flex items-start space-x-4 sm:space-x-6">
-                  <div className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-700 to-blue-900 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base shadow-xl z-10">
-                    09:00
-                  </div>
-                  <div className="flex-1 bg-white p-4 sm:p-6 rounded-2xl shadow-lg">
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Fase de Grupos</h3>
-                    <p className="text-sm sm:text-base text-gray-600">Inicio de los partidos de la fase de grupos. Todos los equipos juegan en sus respectivos grupos.</p>
-                  </div>
-                </div>
-
-                <div className="relative flex items-start space-x-4 sm:space-x-6">
-                  <div className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base shadow-xl z-10">
-                    14:30
-                  </div>
-                  <div className="flex-1 bg-white p-4 sm:p-6 rounded-2xl shadow-lg">
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Semifinales</h3>
-                    <p className="text-sm sm:text-base text-gray-600">Los mejores equipos de cada grupo se enfrentan por un puesto en la gran final.</p>
-                  </div>
-                </div>
-
-                <div className="relative flex items-start space-x-4 sm:space-x-6">
-                  <div className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base shadow-xl z-10">
-                    17:00
-                  </div>
-                  <div className="flex-1 bg-white p-4 sm:p-6 rounded-2xl shadow-lg">
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Final y Entrega de Premios</h3>
-                    <p className="text-sm sm:text-base text-gray-600">Gran final del torneo seguida de la ceremonia de entrega de premios y clausura del evento.</p>
-                  </div>
-                </div>
+                {tournament.phases.map((phase, index) => {
+                  const colors = [
+                    'from-blue-700 to-blue-900',
+                    'from-amber-500 to-amber-600',
+                    'from-blue-500 to-blue-600'
+                  ];
+                  const color = colors[index % colors.length];
+                  
+                  return (
+                    <div key={phase.name} className="relative flex items-start space-x-4 sm:space-x-6">
+                      <div className={`flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br ${color} rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base shadow-xl z-10`}>
+                        {phase.startTime}
+                      </div>
+                      <div className="flex-1 bg-white p-4 sm:p-6 rounded-2xl shadow-lg">
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{phase.name}</h3>
+                        <p className="text-sm sm:text-base text-gray-600">{phase.description}</p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -395,7 +328,7 @@ export default function Home() {
               <div className="space-y-4 sm:space-y-6">
                 <h2 className="text-4xl sm:text-5xl font-bold text-gray-900">Cómo Llegar</h2>
                 <p className="text-lg sm:text-xl text-gray-600">
-                  El torneo se celebrará en las instalaciones deportivas de Usabal, en Tolosa, Gipuzkoa.
+                  El torneo se celebrará en las instalaciones deportivas de {tournament.location.city}, {tournament.location.region}.
                 </p>
                 
                 <div className="space-y-4">
@@ -408,7 +341,7 @@ export default function Home() {
                     </div>
                     <div>
                       <p className="font-semibold text-gray-900">Dirección</p>
-                      <p className="text-gray-600">Auzoa, 25, 20400 Usabal, Gipuzkoa</p>
+                      <p className="text-gray-600">{tournament.location.address}</p>
                     </div>
                   </div>
 
@@ -438,7 +371,7 @@ export default function Home() {
                 </div>
 
                 <a 
-                  href="https://www.google.com/maps/search/?api=1&query=43.1286891148615,-2.084667824227259" 
+                  href={`https://www.google.com/maps/search/?api=1&query=${tournament.location.coordinates.lat},${tournament.location.coordinates.lng}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 bg-blue-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-900 transition-all shadow-lg hover:shadow-xl"
@@ -452,7 +385,7 @@ export default function Home() {
 
               <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2908.5!2d-2.084667824227259!3d43.1286891148615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDA3JzQzLjMiTiAywrAwNScwNC44Ilc!5e0!3m2!1ses!2ses!4v1234567890"
+                  src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2908.5!2d${tournament.location.coordinates.lng}!3d${tournament.location.coordinates.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z!5e0!3m2!1ses!2ses!4v1234567890`}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -476,7 +409,7 @@ export default function Home() {
               ¿Lista para participar?
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl text-blue-100">
-              Únete a nosotros el 11 de abril y forma parte de esta experiencia única
+              Únete a nosotros el {shortDate} y forma parte de esta experiencia única
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Link 
